@@ -19,6 +19,8 @@ RUN R -e "remotes::install_github('rstudio/renv@${RENV_VERSION}')"
 # Install R packages at image buildtime from renv.lock
 WORKDIR /shinyhero
 COPY renv.lock ./
+RUN R -e 'utils::chooseCRANmirror(graphics = FALSE, ind = 57)'
+RUN R -e 'renv::consent(provided = TRUE)'
 RUN R -e 'renv::restore()'
 
 EXPOSE 3838
