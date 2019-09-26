@@ -1,4 +1,4 @@
-FROM rocker/r-ver:3.6
+FROM rocker/r-ver:3.5.1
 
 # system libraries of general use
 RUN apt-get update && apt-get install -y \
@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     wget
 
 # Install renv
-ENV RENV_VERSION 0.7.0.108
+ENV RENV_VERSION 0.7.0-108
 RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))"
 RUN R -e "remotes::install_github('rstudio/renv@${RENV_VERSION}')"
 
