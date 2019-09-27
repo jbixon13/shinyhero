@@ -1,0 +1,6 @@
+#Ignore on image build
+*.md
+*.Rproj
+.gitignore 
+Dockerfile
+LICENSE
