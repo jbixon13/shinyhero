@@ -12,15 +12,22 @@ RUN apt-get update && apt-get install -y \
     wget
 
 # Install renv
-ENV RENV_VERSION 0.7.0-108
+ENV RENV_VERSION 0.7.0-111
 RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))"
 RUN R -e "remotes::install_github('rstudio/renv@${RENV_VERSION}')"
 
-# Install R packages at image buildtime from renv.lock
+# Define working directory
 WORKDIR /shinyhero
-COPY renv.lock ./
-RUN R -e 'utils::chooseCRANmirror(graphics = FALSE, ind = 57)'
+
+# Copy all, use .dockerignore in root to exclude
+COPY . /
+
+# Execute renv package build
 RUN R -e 'renv::consent(provided = TRUE)'
 RUN R -e 'renv::restore()'
 
+# Expose port
 EXPOSE 3838
+
+# Run Shiny App
+RUN R -e "shiny::runApp('shinyhero/')"
