@@ -25,6 +25,7 @@ COPY . /
 # Execute renv package build
 RUN R -e 'renv::consent(provided = TRUE)'
 RUN R -e 'renv::restore()'
+RUN R -e 'renv::rebuild(confirm = FALSE)'
 
 # Expose port
 EXPOSE 3838
