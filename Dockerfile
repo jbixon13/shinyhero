@@ -19,14 +19,11 @@ RUN R -e "remotes::install_github('rstudio/renv@${RENV_VERSION}')"
 # Copy all, use .dockerignore in root to exclude
 COPY . /
 
-# Execute renv package build
+# Execute R package install through renv
 RUN R -e "renv::restore()"
 
 # Expose port
 EXPOSE 3838
 
-# Define working directory
-#WORKDIR /shinyhero
-
-# Run Shiny App
-#RUN R -e "shiny::runApp('shinyhero/')"
+# Run Shiny App, enforce host and port
+CMD ["R", "-e", "shiny::runApp('shinyhero/', host = '0.0.0.0', port = 3838)"]
