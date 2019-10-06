@@ -22,7 +22,7 @@ We've included a `docs` folder with a template [Tech Spec](/docs/Tech_Spec.md) a
 * [renv](https://github.com/rstudio/renv)
 
 ### Build
-* Use this template to set up your project's Github repo.
+* Click the "Use this Template" button to set up a Github repo for your project.
 * Create a new folder for your project on your machine.
 * Set up an Rstudio Project in your new folder.
 * `git clone` the repo to the folder on your machine.
