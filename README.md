@@ -41,6 +41,9 @@ yourProjectName/
    |   README.md
    |   renv.lock
    |   shinyhero.Rproj
+   |
+   |───.github/
+   |     |   ...
    │
    └───app/
    |    │   global.R
