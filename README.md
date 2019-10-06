@@ -1,14 +1,56 @@
 # shinyhero
 
-## What are we doing here?
-`Shiny` is an awesome part of the R ecosystem that allows you to build and deploy web applications. If you don't want to host your application through [shinyapps.io](https://www.shinyapps.io) there is a non-trivial level of effort and understanding of CI/CD, PaaS, and other software engineering practices required that are not familiar to some. I suspect this is applicable to many looking to use the full power of R to share production-grade tools with the world.   
+## Documentation
+We've included a `docs` folder with a template [Tech Spec](/docs/Tech_Spec.md) and [Best Practices](/docs/Best_Practices.md) document, though using Github's Wiki capabilities is also a good idea. This will get you started with documenting your project.  Other documents and relevant information that has no other place can live in the `docs` folder.  Replace this paragraph with a brief breakdown of what you've included in your `docs` folder.
 
-## How are we accomplishing that?
-* `Shiny` isn't generally something you can deploy as-is on cloud deployment solutions (that's the appeal of [shinyapps.io](https://www.shinyapps.io), but it comes with restrictions elsewhere). 
+## Setup
+What does someone need to do to get started with your project? Do they need to:
+* install software?
+* run some commands?
+* do something else?  
 
-* `Docker` allows you to do this in a repeatable, reproducable way.
+### Install
+* [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* [Docker](https://docs.docker.com/v17.09/engine/installation/)
+  + Docker is straightforward to use and install on Linux, OS X, & Windows 10 Pro.
+  + Please see the `docs` folder for additional instructions on installing and running Docker on Windows 10 Home. 
+* [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
+* [R](https://cloud.r-project.org/)
+* [RStudio](https://rstudio.com/products/rstudio/download/)
+  + Optional
+* [renv](https://github.com/rstudio/renv)
 
-* As an additional level of reproducability, `renv` is used to manage R package dependencies in the Docker image.
+### Build
+* Use this template to set up your project's Github repo.
+* `git clone` the repo to your local machine.
+* Set up an RStudio Project (provide more details here around order of setup)
+* `renv` init
 
-## How can I use this?
-Find out next time on Dragon Ball Z
+## Using this template
+* You want more flexibility than [shinyapps.io](https://www.shinyapps.io/) allows.
+* You don't know much about CI/CD, PaaS, and other software engineering tools. 
+* You want a clear path from building your tool to sharing it with the world without compromises.
+
+## Testing
+
+### Test your Shiny Application locally
+It is a good idea to test the Hello World application provided with the template before building anything more complicated.
+* `shiny::RunApp('yourApp/')`
+
+### Test your Docker container locally
+Go to your Git Bash terminal.
+* Make sure Docker is set up correctly on your machine.
+  + `docker ps`
+* Move to your application's directory
+* Build your Docker image locally with `docker build -t yourApp .`
+* Run a docker container from your image with `docker run xyz`
+* Point your browser to localhost:3838
+  + More complicated if running on Windows 10 Home, see `docs`
+
+### Test your Heroku deployment
+* a
+* b
+* c
+
+## Sources and Links
+If referencing any third party service, code, etc, cite it here.
