@@ -9,10 +9,6 @@ We've included a `docs` folder with a template [Tech Spec](/docs/Tech_Spec.md) a
 * You want a clear path from building your tool to sharing it with the world without compromises.
 
 ## Setup
-What does someone need to do to get started with your project? Do they need to:
-* install software?
-* run some commands?
-* do something else?  
 
 ### Install
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
