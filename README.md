@@ -3,6 +3,11 @@
 ## Documentation
 We've included a `docs` folder with a template [Tech Spec](/docs/Tech_Spec.md) and [Best Practices](/docs/Best_Practices.md) document, though using Github's Wiki capabilities is also a good idea. This will get you started with documenting your project.  Other documents and relevant information that has no other place can live in the `docs` folder.  Replace this paragraph with a brief breakdown of what you've included in your `docs` folder.
 
+## Using this template
+* You want more flexibility than [shinyapps.io](https://www.shinyapps.io/) allows.
+* You don't know much about CI/CD, PaaS, and other software engineering tools. 
+* You want a clear path from building your tool to sharing it with the world without compromises.
+
 ## Setup
 What does someone need to do to get started with your project? Do they need to:
 * install software?
@@ -22,20 +27,42 @@ What does someone need to do to get started with your project? Do they need to:
 
 ### Build
 * Use this template to set up your project's Github repo.
-* `git clone` the repo to your local machine.
-* Set up an RStudio Project (provide more details here around order of setup)
-* `renv` init
+* Create a new folder for your project on your machine.
+* Set up an Rstudio Project in your new folder.
+* `git clone` the repo to the folder on your machine.
+* You should now have the following file structure: 
 
-## Using this template
-* You want more flexibility than [shinyapps.io](https://www.shinyapps.io/) allows.
-* You don't know much about CI/CD, PaaS, and other software engineering tools. 
-* You want a clear path from building your tool to sharing it with the world without compromises.
+```
+yourProjectName/
+│   yourProjectName.Rproj    
+│
+└───yourProjectName/
+   │   .dockerignore
+   │   .gitignore
+   |   .Rprofile
+   |   Dockerfile
+   |   LICENSE
+   |   README.md
+   |   renv.lock
+   |   shinyhero.Rproj
+   │
+   └───app/
+   |    │   global.R
+   |    │   ui.R
+   |    │   server.R
+   |
+   |───docs/
+        |   ...
+   |
+   |───renv/
+        |   ...
+```
 
 ## Testing
 
 ### Test your Shiny Application locally
 It is a good idea to test the Hello World application provided with the template before building anything more complicated.
-* `shiny::RunApp('yourApp/')`
+* `shiny::RunApp('app/')`
 
 ### Test your Docker container locally
 Go to your Git Bash terminal.
