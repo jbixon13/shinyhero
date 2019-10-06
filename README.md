@@ -69,8 +69,8 @@ Go to your Git Bash terminal.
 * Make sure Docker is set up correctly on your machine.
   + `docker ps`
 * Move to your application's directory
-* Build your Docker image locally with `docker build -t yourApp .`
-* Run a docker container from your image with `docker run xyz`
+* Build your Docker image locally with `docker build -t yourProjectName .`
+* Run a docker container from your image with `docker run --rm yourProjectName`
 * Point your browser to localhost:3838
   + More complicated if running on Windows 10 Home, see `docs`
 
