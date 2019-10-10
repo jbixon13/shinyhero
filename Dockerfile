@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     wget
 
 # Install renv
-ENV RENV_VERSION 0.7.0-111
+ENV RENV_VERSION 0.7.0-131
 RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))"
 RUN R -e "remotes::install_github('rstudio/renv@${RENV_VERSION}')"
 
