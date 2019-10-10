@@ -23,9 +23,9 @@ We've included a `docs` folder with a template [Tech Spec](/docs/Tech_Spec.md) a
 
 ### Build
 * Click the "Use this Template" button to set up a Github repo for your project.
-* Create a new folder for your project on your machine.
-* Set up an Rstudio Project in your new folder.
-* `git clone` the repo to the folder on your machine.
+* Copy the link to your new Github repo.
+* `git clone` your repo to your machine.
+* Change the name of shinyhero.Rproj to yourProjectName.Rproj
 * You should now have the following file structure: 
 
 ```
