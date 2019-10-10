@@ -30,32 +30,33 @@ We've included a `docs` folder with a template [Tech Spec](/docs/Tech_Spec.md) a
 
 ```
 yourProjectName/
-│   yourProjectName.Rproj    
+│   .dockerignore
+│   .gitignore
+|   .Rprofile
+|   Dockerfile
+|   LICENSE
+|   README.md
+|   renv.lock
+|   yourProjectName.Rproj
+|
+|───.github/
+|     |   ...
 │
-└───yourProjectName/
-   │   .dockerignore
-   │   .gitignore
-   |   .Rprofile
-   |   Dockerfile
-   |   LICENSE
-   |   README.md
-   |   renv.lock
-   |   shinyhero.Rproj
-   |
-   |───.github/
-   |     |   ...
-   │
-   └───app/
-   |    │   global.R
-   |    │   ui.R
-   |    │   server.R
-   |
-   |───docs/
-        |   ...
-   |
-   |───renv/
-        |   ...
+└───app/
+|    │   global.R
+|    │   ui.R
+|    │   server.R
+|
+|───docs/
+     |   ...
+|
+|───renv/
+     |   ...
 ```
+
+* Your local project will have no packages installed. Run `renv::restore()` to install packages from renv.lock.
+* If you have issues installing any packages, run `renv::init()` to re-build renv.lock. 
+* You should now have all R packages needed to locally run the Hello World example installed.  
 
 ## Testing
 
