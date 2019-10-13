@@ -1,4 +1,5 @@
 # shinyhero
+[![Build Status](https://travis-ci.com/jbixon13/shinyhero.svg?branch=master)](https://travis-ci.com/jbixon13/shinyhero)
 
 ## Documentation
 We've included a `docs` folder with a template [Tech Spec](/docs/Tech_Spec.md) and [Best Practices](/docs/Best_Practices.md) document, though using Github's Wiki capabilities is also a good idea. This will get you started with documenting your project.  Other documents and relevant information that has no other place can live in the `docs` folder.  Replace this paragraph with a brief breakdown of what you've included in your `docs` folder.
