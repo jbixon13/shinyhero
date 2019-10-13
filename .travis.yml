@@ -3,5 +3,11 @@ language: r
 services: 
   - docker
   
-before_install:
+before_deploy:
   - docker build -t shinyhero .
+
+deploy:
+  provider: script
+  script: bash docker_push
+  on:
+    branch: master
