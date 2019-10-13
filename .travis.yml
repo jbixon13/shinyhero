@@ -3,7 +3,7 @@ language: r
 services: 
   - docker
   
-before_deploy:
+before_install:
   - docker build -t shinyhero .
 
 deploy:
