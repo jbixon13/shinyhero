@@ -3,6 +3,8 @@ language: r
 services: 
   - docker
   
+warnings_are_errors: true  
+
 before_install:
   - docker build -t shinyhero .
 
