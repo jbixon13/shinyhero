@@ -15,9 +15,11 @@ script:
 
 after_success:
 - docker rm -f test
-- docker login -u $DOCKER_USERNAME --password-stdin $DOCKER_PASSWORD
+#- docker login -u $DOCKER_USERNAME --password-stdin $DOCKER_PASSWORD
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 - docker tag jbixon13/shinyhero:latest jbixon13/shinyhero:$TRAVIS_BUILD_NUMBER
-- docker push jbixon13/shinyhero
+- docker push https://registry.hub.docker.com/shinyhero
+#- docker push registry_url/mysite:travis-$TRAVIS_BUILD_NUMBER
 
 deploy:
   provider: heroku
