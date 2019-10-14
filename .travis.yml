@@ -3,10 +3,12 @@ language: r
 services: 
   - docker
   
-script:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+before_install:
   - docker build -t shinyhero .
 
+script: 
+  - docker run --rm shinyhero
+  
 deploy:
   provider: heroku
   api_key:
