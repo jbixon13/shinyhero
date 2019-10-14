@@ -15,6 +15,12 @@ script:
 
 after_success:
 - docker rm -f test
-- docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+- docker login -u $DOCKER_USERNAME --password-stdin $DOCKER_PASSWORD
 - docker tag jbixon13/shinyhero:latest jbixon13/shinyhero:$TRAVIS_BUILD_NUMBER
 - docker push jbixon13/shinyhero
+
+deploy:
+  provider: heroku
+  api_key: 
+    secure: $HEROKU_KEY
+  app: shinyhero-test
