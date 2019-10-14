@@ -26,4 +26,6 @@ RUN R -e "renv::restore()"
 EXPOSE 3838
 
 # Run Shiny App, enforce host and port
-CMD ["R", "-e", "shiny::runApp('app/', host = '0.0.0.0', port = 3838)"]
+#CMD ["R", "-e", "shiny::runApp('app/', host = '0.0.0.0', port = as.numeric(3838))"]
+
+CMD ["R", "--no-save", "--gui-none", "-f /app/run.R"]
