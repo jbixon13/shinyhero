@@ -5,17 +5,16 @@ services:
 - docker
 
 before_install:
-- docker build -t shinyhero .
-- docker run --rm shinyhero:latest --name test
+- docker pull jbixon13/shinyhero:latest
+- docker build --cache-from jbixon13/shinyhero:latest -t jbixon13/shinyhero:latest . 
+- docker run --rm -d -p 3838:3838 --name test jbixon13/shinyhero:latest
 
-#script:
-#- docker exec test R -f run_tests.R
+script:
+#- docker exec test R -f /srv/shiny-server/usa-trade/run_tests.R
+- docker ps
 
-#after_script:
-#- docker rm -f test
-  
-deploy:
-  provider: heroku
-  api_key:
-    secure: "$HEROKU_KEY"
-  app: shinyhero-test
+after_success:
+- docker rm -f test
+- docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+- docker tag jbixon13/shinyhero:latest jbixon13/shinyhero:$TRAVIS_BUILD_NUMBER
+- docker push jbixon13/shinyhero
