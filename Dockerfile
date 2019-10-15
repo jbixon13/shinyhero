@@ -2,15 +2,15 @@
 FROM velaco/alpine-r:base-3.5.1
 
 # system libraries of general use
-RUN apt-get update && apt-get install -y \
-    sudo \
-    gdebi-core \
-    pandoc \
-    pandoc-citeproc \
-    libcurl4-gnutls-dev \
-    libcairo2-dev \
-    libxt-dev \
-    wget
+#RUN apt-get update && apt-get install -y \
+#    sudo \
+#    gdebi-core \
+#    pandoc \
+#    pandoc-citeproc \
+#    libcurl4-gnutls-dev \
+#    libcairo2-dev \
+#    libxt-dev \
+#    wget
 
 # Install renv
 ENV RENV_VERSION 0.7.0-131
