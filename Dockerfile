@@ -1,6 +1,6 @@
 FROM rocker/r-ver:3.5.1
 
-# system libraries of general use
+# Install Linux system libs
 RUN apt-get update && apt-get install -y \
     sudo \
     gdebi-core \
@@ -25,7 +25,5 @@ RUN R -e "renv::restore()"
 # Expose port
 EXPOSE 3838
 
-# Run Shiny App, enforce host and port
-#CMD ["R", "-e", "shiny::runApp('app/', host = '0.0.0.0', port = as.numeric(3838))"]
-
+# Run Shiny App using port assignment in run.R 
 CMD ["R", "--no-save", "--gui-none", "-f /app/run.R"]
