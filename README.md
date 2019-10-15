@@ -19,17 +19,17 @@
 We've included a `docs` folder with a template [Tech Spec](/docs/Tech_Spec.md) and [Best Practices](/docs/Best_Practices.md) document, though using Github's Wiki capabilities is also a good idea. This will get you started with documenting your project.  Other documents and relevant information that has no other place can live in the `docs` folder.  Replace this paragraph with a brief breakdown of what you've included in your `docs` folder.
 
 ## Using this template
-* You want more flexibility than [shinyapps.io](https://www.shinyapps.io/) allows.
-* You don't know much about CI/CD, PaaS, and other software engineering tools. 
-* You want a clear path from building your tool to sharing it with the world without compromises.
+* You want more flexibility than [shinyapps.io](https://www.shinyapps.io/) allows
+* You don't know much about CI/CD, PaaS, and other devOps tools
+* You want a clear path from building your tool to sharing it with the world without compromises
 
 ## Setup
 
 ### Install
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * [Docker](https://docs.docker.com/v17.09/engine/installation/)
-  + Docker is straightforward to use and install on Linux, OS X, & Windows 10 Pro.
-  + Please see the `docs` folder for additional instructions on installing and running Docker on Windows 10 Home. 
+  + Docker is straightforward to use and install on Linux, OS X, & Windows 10 Pro
+  + Please see the `docs` folder for additional instructions on installing and running Docker on Windows 10 Home
 * [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
 * [R](https://cloud.r-project.org/)
 * [RStudio](https://rstudio.com/products/rstudio/download/)
