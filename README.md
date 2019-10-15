@@ -23,62 +23,90 @@ We've included a `docs` folder with a template [Tech Spec](/docs/Tech_Spec.md) a
 * [renv](https://github.com/rstudio/renv)
 
 ### Build
-* Click the "Use this Template" button to set up a Github repo for your project.
-* Copy the link to your new Github repo.
-* `git clone` your repo to your machine.
-* Change the name of shinyhero.Rproj to yourProjectName.Rproj
+* Click the "Use this Template" button to set up a Github repo for your project
+* Copy the link to your new Github repo
+* `git clone` your repo to your machine
+* Change the name of `shinyhero.Rproj` to `<yourProjectName>.Rproj`
 * You should now have the following file structure: 
 
 ```
-yourProjectName/
+<yourProjectName>
 │   .dockerignore
 │   .gitignore
 |   .Rprofile
+|   .travis.yml
 |   Dockerfile
 |   LICENSE
 |   README.md
 |   renv.lock
-|   yourProjectName.Rproj
+|   <yourProjectName>.Rproj
 |
-|───.github/
+|───.github
 |     |   ...
 │
-└───app/
+└───app
 |    │   global.R
 |    │   ui.R
+|    |   run.R
 |    │   server.R
 |
-|───docs/
+|───docs
      |   ...
 |
-|───renv/
+|───renv
      |   ...
 ```
 
-* Your local project will have no packages installed. Run `renv::restore()` to install packages from renv.lock.
-* If you have issues installing any packages, run `renv::init()` to re-build renv.lock. 
-* You should now have all R packages needed to locally run the Hello World example installed.  
+* Your local project will have no packages installed. Run `renv::restore()` to install packages from renv.lock
+* If you have issues installing any packages, run `renv::init()` to re-build renv.lock.
+* You should now have all R packages needed to locally run the basic example application in `app/`
 
 ## Testing
 
 ### Test your Shiny Application locally
-It is a good idea to test the Hello World application provided with the template before building anything more complicated.
+It is a good idea to test the application provided before building anything more complicated
 * `shiny::RunApp('app/')`
 
 ### Test your Docker container locally
-Go to your Git Bash terminal.
-* Make sure Docker is set up correctly on your machine.
-  + `docker ps`
+
+Go to your Git Bash terminal
+* Make sure Docker is set up correctly on your machine: `docker ps`
 * Move to your application's directory
-* Build your Docker image locally with `docker build -t yourProjectName .`
-* Run a docker container from your image with `docker run --rm yourProjectName`
+* Build your Docker image locally: `docker build -t <yourProjectName> .`
+* Run a docker container from your image: `docker run --rm <yourProjectName>`
 * Point your browser to localhost:3838
   + More complicated if running on Windows 10 Home, see `docs`
 
 ### Test your Heroku deployment
-* a
-* b
-* c
+* Make sure you're logged into Heroku: `heroku login` 
+* Login to the Heroku container registry: `heroku container:login`
+* Create a Heroku application in your project directory: `heroku create <yourProjectName>`
+* Build a Docker image to the container registry: ` heroku container:push web -a <yourProjectName>`
+* Release your app to production: `heroku container:release web -a <yourProjectName>`
+
+## Automate
+You should now have:
+* A functioning app that you can run locally
+* The same app deployed to Heroku through the Heroku container registry
+* You could keep iterating manually by building locally and deploying through the CLI
+* An automated CI/CD pipeline is a more robust solution
+
+### Heroku
+* To automate the build pipeline you will need to generate a Heroku API Key
+* Run `heroku:auth token` in Git Bash on your local machine
+* Go to your [Heroku account settings](https://dashboard.heroku.com/account) and copy your key after revealing
+
+### Travis CI
+* Set up Travis CI by connecting your Github account at [travis-ci.com](https://www.travis-ci.com)
+* Having a Github repo with a `.travis.yml` file should automatically enable Travis to run on each push
+* `.travis.yml` will not need to be changed, but you will need to provide environment variables to build successfully
+* Go to the settings of your project's repo on [travis-ci.com](https://www.travis-ci.com) and scroll down to `Environment Variables`
+* You will need two variables to build successfully: `HEROKU_API_KEY` and `HEROKU_APP_NAME`
+* Paste the Heroku key copied earlier into an environment variable named `HEROKU_API_KEY`
+  + **NOTE: Make sure "Display Value in Build Log" is unchecked so you do not expose your key**
+* Create a second environment variable named `HEROKU_APP_NAME` which is the name of your app on Heroku, likely `<yourProjectName>`
+  + This value can be displayed in the log as it is not a secure credential
+* You should now have an end-to-end development pipeline from locally building to hosting on the Heroku PaaS 
 
 ## Sources and Links
 If referencing any third party service, code, etc, cite it here.
