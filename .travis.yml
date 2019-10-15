@@ -18,10 +18,13 @@ after_success:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 - docker tag jbixon13/shinyhero:latest jbixon13/shinyhero:$TRAVIS_BUILD_NUMBER
 - docker push jbixon13/shinyhero
-#- docker push registry_url/mysite:travis-$TRAVIS_BUILD_NUMBER
+- heroku login
+- heroku container:login
+- heroku container:push web -a shinyhero-test
+- heroku container:release web -a shinyhero-test
 
-deploy:
-  provider: heroku
-  api_key: 
-    secure: $HEROKU_KEY
-  app: shinyhero-test
+#deploy:
+#  provider: heroku
+#  api_key: 
+#    secure: $HEROKU_KEY
+#  app: shinyhero-test
