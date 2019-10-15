@@ -10,7 +10,6 @@ before_install:
 - docker run --rm -d -p 3838:3838 --name test jbixon13/shinyhero:latest
 
 script:
-#- docker exec test R -f /srv/shiny-server/usa-trade/run_tests.R
 - docker ps
 
 after_success:
@@ -18,7 +17,7 @@ after_success:
 #- docker login -u $DOCKER_USERNAME --password-stdin $DOCKER_PASSWORD
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 - docker tag jbixon13/shinyhero:latest jbixon13/shinyhero:$TRAVIS_BUILD_NUMBER
-- docker push https://registry.hub.docker.com/shinyhero
+- docker push jbixon13/shinyhero
 #- docker push registry_url/mysite:travis-$TRAVIS_BUILD_NUMBER
 
 deploy:
