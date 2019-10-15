@@ -1,6 +1,20 @@
 # shinyhero
 [![Build Status](https://travis-ci.com/jbixon13/shinyhero.svg?branch=master)](https://travis-ci.com/jbixon13/shinyhero)
 
+- [Documentation](#documentation)
+- [Using this template](#using-this-template)
+- [Setup](#setup)
+  - [Install](#install)
+  - [Build](#build)
+- [Testing](#testing)
+  - [Test your Shiny Application locally](#test-your-shiny-application-locally)
+  - [Test your Docker container locally](#test-your-docker-container-locally)
+  - [Test your Heroku deployment](#test-your-heroku-deployment)
+- [Automate](#automate)
+  - [Heroku](#heroku)
+  - [Travis CI](#travis-ci)
+- [Sources and Links](#sources-and-links)
+
 ## Documentation
 We've included a `docs` folder with a template [Tech Spec](/docs/Tech_Spec.md) and [Best Practices](/docs/Best_Practices.md) document, though using Github's Wiki capabilities is also a good idea. This will get you started with documenting your project.  Other documents and relevant information that has no other place can live in the `docs` folder.  Replace this paragraph with a brief breakdown of what you've included in your `docs` folder.
 
