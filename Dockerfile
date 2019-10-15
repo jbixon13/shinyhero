@@ -1,4 +1,5 @@
-FROM rocker/r-ver:3.5.1
+#FROM rocker/r-ver:3.5.1
+FROM velaco/alpine:base-3.5.1
 
 # system libraries of general use
 RUN apt-get update && apt-get install -y \
