@@ -1,6 +1,6 @@
 # shinyhero
-[![Build Status](https://travis-ci.com/jbixon13/shinyhero.svg?branch=master)](https://travis-ci.com/jbixon13/shinyhero)
-
+[![Travis CI Build Status](https://travis-ci.com/jbixon13/shinyhero.svg?branch=master)](https://travis-ci.com/jbixon13/shinyhero)
+[![Heroku Build Status](https://heroku-badge.herokuapp.com/?app=shinyhero-test)]
 - [Documentation](#documentation)
 - [Using this template](#using-this-template)
 - [Setup](#setup)
