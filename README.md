@@ -72,32 +72,73 @@ We've included a `docs` folder with a template [Tech Spec](/docs/Tech_Spec.md) a
      |   ...
 ```
 
-* Your local project will have no packages installed. Run `renv::restore()` to install packages from renv.lock
-* If you have issues installing any packages, run `renv::init()` to re-build renv.lock.
+* Your local project will have no packages installed. Run to install packages from renv.lock:
+```r
+renv::restore()
+```
+
+* If you have issues installing any packages, run to re-build renv.lock:
+```r
+renv::init()
+```
+
 * You should now have all R packages needed to locally run the basic example application in `app/`
 
 ## Testing
 
 ### Test your Shiny Application locally
-It is a good idea to test the application provided before building anything more complicated
-* `shiny::RunApp('app/')`
+It is a good idea to test the application provided before building anything more complicated:
+```r
+shiny::RunApp('app/')
+```
 
 ### Test your Docker container locally
 
 Go to your Git Bash terminal
-* Make sure Docker is set up correctly on your machine: `docker ps`
+* Make sure Docker is set up correctly on your machine:
+```bash
+docker ps
+```
+
 * Move to your application's directory
-* Build your Docker image locally: `docker build -t <yourProjectName> .`
-* Run a docker container from your image: `docker run --rm <yourProjectName>`
-* Point your browser to localhost:3838
+* Build your Docker image locally:
+```bash
+docker build -t <yourProjectName> .
+```
+
+* Run a docker container from your image:
+```bash
+docker run --rm <yourProjectName>
+```
+
+* Point your browser to http://localhost:3838
   + More complicated if running on Windows 10 Home, see `docs`
 
 ### Test your Heroku deployment
-* Make sure you're logged into Heroku: `heroku login` 
-* Login to the Heroku container registry: `heroku container:login`
-* Create a Heroku application in your project directory: `heroku create <yourProjectName>`
-* Build a Docker image to the container registry: ` heroku container:push web -a <yourProjectName>`
-* Release your app to production: `heroku container:release web -a <yourProjectName>`
+* Make sure you're logged into Heroku:
+```bash
+heroku login
+```
+
+* Login to the Heroku container registry:
+```bash
+heroku container:login
+```
+
+* Create a Heroku application in your project directory: 
+```bash
+heroku create <yourProjectName>
+```
+
+* Build a Docker image to the container registry: 
+```bash
+heroku container:push web -a <yourProjectName>
+```
+
+* Release your app to production:
+```bash
+heroku container:release web -a <yourProjectName>
+```
 
 ## Automate
 You should now have:
@@ -108,7 +149,11 @@ You should now have:
 
 ### Heroku
 * To automate the build pipeline you will need to generate a Heroku API Key
-* Run `heroku:auth token` in Git Bash on your local machine
+* Run in your local machine's terminal: 
+```bash
+heroku:auth token
+```
+
 * Go to your [Heroku account settings](https://dashboard.heroku.com/account) and copy your key after revealing
 
 ### Travis CI
