@@ -97,7 +97,7 @@ shiny::RunApp('app/')
 
 ### Test your Docker container locally
 
-Go to your Git Bash terminal
+Go to your terminal
 * Make sure Docker is set up correctly on your machine:
 ```bash
 docker ps
