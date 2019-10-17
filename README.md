@@ -40,7 +40,10 @@ We've included a `docs` folder with a template [Tech Spec](/docs/Tech_Spec.md) a
 ### Build
 * Click the "Use this Template" button to set up a Github repo for your project
 * Copy the link to your new Github repo
-* `git clone` your repo to your machine
+* Clone your repo to your machine:
+```bash
+git clone https://github.com/<yourGithubAccount>/<yourProjectName>.git
+```
 * Change the name of `shinyhero.Rproj` to `<yourProjectName>.Rproj`
 * You should now have the following file structure: 
 
@@ -72,16 +75,16 @@ We've included a `docs` folder with a template [Tech Spec](/docs/Tech_Spec.md) a
      |   ...
 ```
 
-* Your local project will have no packages installed. Run to install packages from renv.lock:
+* Open your project's RStudio Project file
+* You will have no packages installed or accessible from your project
+* Run in the R console to install packages from renv.lock:
 ```r
 renv::restore()
 ```
-
 * If you have issues installing any packages, run to re-build renv.lock:
 ```r
 renv::init()
 ```
-
 * You should now have all R packages needed to locally run the basic example application in `app/`
 
 ## Testing
@@ -99,18 +102,15 @@ Go to your Git Bash terminal
 ```bash
 docker ps
 ```
-
 * Move to your application's directory
 * Build your Docker image locally:
 ```bash
 docker build -t <yourProjectName> .
 ```
-
 * Run a docker container from your image:
 ```bash
 docker run --rm <yourProjectName>
 ```
-
 * Point your browser to http://localhost:3838
   + More complicated if running on Windows 10 Home, see `docs`
 
@@ -119,22 +119,18 @@ docker run --rm <yourProjectName>
 ```bash
 heroku login
 ```
-
 * Login to the Heroku container registry:
 ```bash
 heroku container:login
 ```
-
 * Create a Heroku application in your project directory: 
 ```bash
 heroku create <yourProjectName>
 ```
-
 * Build a Docker image to the container registry: 
 ```bash
 heroku container:push web -a <yourProjectName>
 ```
-
 * Release your app to production:
 ```bash
 heroku container:release web -a <yourProjectName>
@@ -153,8 +149,7 @@ You should now have:
 ```bash
 heroku:auth token
 ```
-
-* Go to your [Heroku account settings](https://dashboard.heroku.com/account) and copy your key after revealing
+* This should reveal your API key. If not, go to your [Heroku account settings](https://dashboard.heroku.com/account) and copy your key after revealing there
 
 ### Travis CI
 * Set up Travis CI by connecting your Github account at [travis-ci.com](https://www.travis-ci.com)
